@@ -1,0 +1,32 @@
+{
+  "name": "maisdevas",
+  "version": "1.0.0",
+  "description": "Canais de youtube, cursos e perfis de instagram feito por mulheres que incentivam mais mulheres a entrarem na programação.\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[DAPA\u001b[DO \u001b[2~ \u001b[D\u001b[D\u001b[DI de Canais de Youtube, cursos e perfis de instagram feitos por mulheres que incentivam mais mulheres a entrarem na programação.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KessyCosta/Reprograma-ProjetoFinal.git"
+  },
+  "keywords": [
+    "devas",
+    "mulheres",
+    "programadoras",
+    "canais",
+    "cursos",
+    "perfis"
+  ],
+  "author": "kessy costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KessyCosta/Reprograma-ProjetoFinal/issues"
+  },
+  "homepage": "https://github.com/KessyCosta/Reprograma-ProjetoFinal#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
