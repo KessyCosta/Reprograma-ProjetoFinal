@@ -4,9 +4,9 @@ const perfisSchema = new mongoose.Schema(
     {
         id: {type: String},
         perfilInstagram:{type: String, required: true},
-        dona:{type: String},
+        donaPerfil:{type: String},
         endereço:{type: String, required:true},
-    }
+    }, { versionKey : false }
 )
 
 const Model = mongoose.model('perfis', perfisSchema)

@@ -4,11 +4,11 @@ const cursosSchema = new mongoose.Schema(
     {
         id: {type: String},
         curso:{type: String, required: true},
-        professora:{type: String},
-        numeroAulas:{ type: Number},
         assunto:{ type: String},
+        professora:{type: String},
+        numeroAulas:{ type: String},
         endereço:{type: String, required:true},
-    }
+    }, { versionKey : false }
 )
 
 const Model = mongoose.model('cursos', cursosSchema)

@@ -1,17 +1,91 @@
-const PerfisModel = require('../model/perfisModel')
+const ProfileModel = require('../model/perfisModel')
+
+
+//POST -> cadastra perfil de instagram de mulheres de incentivam outras mulheres
+const cadastraPerfil = async (req, res) => {
+    try {
+        const {  perfilInstagram, donaPerfil, endereço } = req.body
+
+        const newPerfil = new ProfileModel({
+            perfilInstagram, donaPerfil, endereço
+        })
+        const savedPerfil = await newPerfil.save()
+
+        res.status(201).json([{ 
+            "Mais um perfil inspirador na lista!": savedPerfil
+        }])
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Erro no servidor" })
+    }
+}
 
 
 //GET -> lista os perfis de instagram de mulheres que incentivam outras a programar
 const findAllProfiles = async (req, res) => {
     try {
-        const allProfiles = await PerfisModel.find()
-            res.status(200).json(allProfiles)
+        const allProfiles = await ProfileModel.find()
+            res.status(200).json([{
+                "Perfis do Instagram pra te inspirar e encorajar": 
+                allProfiles
+            }])
     } catch (error) {
         console.log(error)
-        res.status(500).json({message: error.message})
+        res.status(500).json({message: "Erro no servidor" })
+    }
+}
+
+//GET -> buscar perfil do Instagram cadastrado por id
+const findProfileById = async (req, res) => {
+    try {
+        const findProfile = await ProfileModel.findById(req.params.id)
+        res.status(200).json([{
+            "E que esse perfil te inspire...": findProfile
+        }])
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Erro no servidor" })
+    }
+}
+
+
+//PATCH -> atualiza um dado(um item) do perfil buscando pelo id
+const updateProfile = async (req, res) => {
+    try { 
+        const { perfilInstagram, donaPerfil, endereço} = req.body
+        await ProfileModel.findByIdAndUpdate(req.params.id, {
+            perfilInstagram, donaPerfil, endereço
+        })
+
+        const profileUpdated = await ProfileModel.findById(req.params.id)
+            res.status(200).json([{ 
+            "messagem": "Atualizado com sucesso!", 
+            profileUpdated
+        }])
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Erro no servidor" })
+    }
+}
+
+
+//DELETE -> deleta perfil de instagram cadastrado buscando por id
+const deleteProfile = async (req, res) => {
+    try {
+        const { id } = req. params
+        await ProfileModel.findByIdAndDelete(id)
+        const message = `O perfil com o id ${id} foi deletado com sucesso.`
+        res.status(200).json({ message })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Erro no servidor" })
     }
 }
 
 module.exports = {
-    findAllProfiles
+    cadastraPerfil,
+    findAllProfiles, 
+    findProfileById,
+    updateProfile,
+    deleteProfile
 }

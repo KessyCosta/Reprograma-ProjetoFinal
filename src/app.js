@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const express = require('express') //importando o express
 const cors = require('cors')
-const mongoose = require ('./database/dbConnect')
+const mongoose = require ('./database/mongooseConnect')
 const canaisRoutes = require('./routes/canaisRoutes')
 const cursosRoutes = require('./routes/cursosRoutes')
 const perfisRoutes = require('./routes/perfisRoutes')
@@ -18,11 +18,10 @@ app.use(cors()) //deixar a api pública
 
 app.use('/documentacao', swaggerUi.serve, swaggerUi.setup(swaggerFile)); //rota para o swagger
 
+mongoose.connect() //concetar o banco
 
 app.use(canaisRoutes)
 app.use(cursosRoutes)
 app.use(perfisRoutes)
-
-mongoose.connect() //concetar o banco
 
 module.exports = app //exportando para usar o server

@@ -3,10 +3,12 @@ const mongoose =  require('mongoose')
 const canaisSchema = new mongoose.Schema(
     {
         id: {type: String},
-        nome:{type: String, required: true},
+        canal:{type: String, required: true},
         youtuber:{type: String},
+        assunto: {type: String},
+        descrição:{type: String},
         endereço:{type: String, required:true}
-    }
+    } , { versionKey : false }
 )
 
 const Model = mongoose.model('canais', canaisSchema)

@@ -1,19 +1,88 @@
 const CursosModel = require('../model/cursosModel')
 
 
-//GET -> lista todos os cursos de tecnologia cadastrados
-const findAllcursos = async (req, res) => {
+//POST -> cadastra cursos de programação feito por mulheres
+const cadastraCurso = async (req, res) => {
     try {
-        const allCursos = await CursosModel.find()
-            res.status(200).json(allCursos)
+        const { curso, assunto, professora, numeroAulas, endereço } = req.body
+
+        const newCurso = new CursosModel({
+            curso, assunto, professora, numeroAulas, endereço
+        })
+        const savedCurso = await newCurso.save()
+
+        res.status(201).json([{ "Mais um curso lindo feito por uma mulher pra você, mulher, cadastrado com sucesso!":savedCurso}])
     } catch (error) {
-        console.log(error)
-        res.status(500).json({message: error.message})
+        console.error(error)
+        res.status(500).json({ message:"Erro no servidor" })
     }
 }
 
 
+//GET -> lista todos os cursos de tecnologia cadastrados
+const findAllcursos = async (req, res) => {
+    try {
+        const allCursos = await CursosModel.find()
+            res.status(200).json([{ "Todos os cursos de tecnologia, feito por mulheres, especialmente pra gente diminuir esse gap de gênero. Escolhe o seu e bora estudar!":
+            allCursos
+        }])
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message: "Erro no servidor" })
+    }
+}
+
+//GET -> buscar curso por id
+const findCursoById = async (req, res) => {
+    try {
+        const findCurso = await CursosModel.findById(req.params.id)
+        res.status(200).json([{ "Tá aqui o curso que você estava buscando, se joga, foi feito pra você, mulher!!":
+        findCurso
+        }])
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Erro no servidor" })
+    }
+}
+
+
+//PATCH -> atualiza um item do curso buscando pelo id
+const updateCurso = async (req, res) => {
+    try {
+        const { curso, assunto, professora, numeroAulas, endereço } = req.body
+        await CursosModel.findByIdAndUpdate(req.params.id, {
+            curso, assunto, professora, numeroAulas, endereço
+        })
+        
+        const cursoUpdated = await CursosModel.findById(req.params.id)
+        res.status(200).json([{ 
+            "messagem": "Atualizado com sucesso!", 
+            cursoUpdated
+        }])
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Erro no servidor" })
+    }
+}
+
+
+//DELETE -> deleta curso buscando pelo id
+const deleteCurso = async (req, res) => {
+    try {
+        const { id } = req.params
+        await CursosModel.findByIdAndDelete(id)
+        const message = `O curso com o id ${id} foi deletado com sucesso.`
+        res.status(200).json({ message })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Erro no servidor" })
+    }
+}
 
 module.exports = {
-    findAllcursos
+    cadastraCurso,
+    findAllcursos,
+    findCursoById,
+    updateCurso,
+    deleteCurso
 }
