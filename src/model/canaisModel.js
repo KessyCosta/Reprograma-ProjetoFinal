@@ -6,8 +6,8 @@ const canaisSchema = new mongoose.Schema(
         canal:{type: String, required: true},
         youtuber:{type: String},
         assunto: {type: String},
-        descrição:{type: String},
-        endereço:{type: String, required:true}
+        descricão:{type: String},
+        endereco:{type: String, required:true}
     } , { versionKey : false }
 )
 

@@ -1,6 +1,6 @@
 const cursosModel = require('../src/model/cursosModel')
 
-describe('Post, Criar rota de teste.', () => {
+describe('Teste do modelo Perfis', () => {
     const cursos = new cursosModel({
         "curso": "curso teste",
         "assunto": "assunto para testes",

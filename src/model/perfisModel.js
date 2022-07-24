@@ -5,7 +5,7 @@ const perfisSchema = new mongoose.Schema(
         id: {type: String},
         perfilInstagram:{type: String, required: true},
         donaPerfil:{type: String},
-        endereço:{type: String, required:true},
+        endereco:{type: String, required:true},
     }, { versionKey : false }
 )
 

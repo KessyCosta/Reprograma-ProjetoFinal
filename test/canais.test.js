@@ -1,11 +1,11 @@
 const canaisModel = require('../src/model/canaisModel')
 
-describe('Post, Criar rota de teste.', () => {
+describe('Teste do modelo Canais.', () => {
     const canais = new canaisModel({ //canal, youtuber, assunto,descrição,endereço
         "canal": "canal teste",
         "youtuber": "youtuber para testes",
-        "assunto": "assunto para teste", 
-        "descrição": "descrição do canal para teste",
+        "assunto": "assunto teste", 
+        "descricão": "descrição do canal para teste",
         "endereco": "endereco teste"
     });
     it("Deve chamar o schema e retornar o nome do canal.", () => {
@@ -18,7 +18,7 @@ describe('Post, Criar rota de teste.', () => {
         expect(canais.assunto).toBe("assunto teste");
     });
     it("Deve chamar o schema e retornar a descrição do canal.", () => {
-        expect(canais.descricao).toBe("descrição do canal teste");
+        expect(canais.descricão).toBe("descrição do canal para teste");
     });
     it("Deve chamar o schema e retornar o endereço do canal.", () => {
         expect(canais.endereco).toBe("endereco teste");
