@@ -18,7 +18,7 @@ app.use(express.json()) //body parse
 
 app.use(cors()) //deixar a api pública
 
-app.use('/documentacao', swaggerUi.serve, swaggerUi.setup(swaggerFile)); //rota para o swagger
+app.use('/mais-devas-documentacao', swaggerUi.serve, swaggerUi.setup(swaggerFile)); //rota para o swagger
 
 mongoose.connect() //concetar o banco
 
