@@ -7,7 +7,7 @@ const cursosSchema = new mongoose.Schema(
         assunto:{ type: String},
         professora:{type: String},
         numeroAulas:{ type: String},
-        endereço:{type: String, required:true},
+        endereco:{type: String, required:true},
     }, { versionKey : false }
 )
 

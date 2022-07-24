@@ -1,5 +1,6 @@
 const CanaisModel = require('../model/canaisModel')
-
+const SECRET = process.env.SECRET
+const jwt = require('jsonwebtoken')
 
 //POST -> cadastrar um canal
 const cadastraCanal = async (req, res) => {
@@ -48,6 +49,22 @@ const findChannelById = async (req, res) => {
 //PATCH -> atualiza um dado do curso buscando pelo id
 const updateChannel = async (req, res) => {
     try {
+        
+      const authHeader = req.get('authorization')
+      if(!authHeader) {
+        return res.status(401).send('Você precisa de uma autorização pra ter esse acesso.')
+      }
+
+      const token = authHeader.split(' ')[1]
+
+      await jwt.verify(token, SECRET, async function (erro) {
+        
+        if (erro) {
+          return res.status(403).json('Não deu certo!')
+        }
+          
+      })
+        
         const { canal, youtuber, assunto, descrição, endereço } = req.body
         await CanaisModel.findByIdAndUpdate(req.params.id, {
             canal, youtuber, assunto, descrição, endereço  
@@ -68,10 +85,27 @@ const updateChannel = async (req, res) => {
 //DELETE -> deletar um canal
 const deleteCanal = async (req, res) => {
     try {
+
+     const authHeader = req.get('authorization')
+      if(!authHeader) {
+        return res.status(401).send('Você precisa de uma autorização pra ter esse acesso.')
+      }
+
+      const token = authHeader.split(' ')[1]
+
+      await jwt.verify(token, SECRET, async function (erro) {
+        
+        if (erro) {
+          return res.status(403).json('Não deu certo!')
+        }
+          
+      })
+
         const { id } = req.params
         await CanaisModel.findByIdAndDelete(id)
         const message = `O canal com o id ${id} foi deletado com sucesso.`
         res.status(200).json({ message })
+    
     } catch (error) {
         console.error(error)
         res.status(500).json({ message: "Erro no servidor" })
