@@ -4,12 +4,12 @@ const ProfileModel = require('../model/perfisModel')
 //POST -> cadastra perfil de instagram de mulheres de incentivam outras mulheres
 const cadastraPerfil = async (req, res) => {
   try {
-    const { perfilInstagram, donaPerfil, endereço } = req.body;
+    const { perfilInstagram, donaPerfil, endereco } = req.body;
 
     const newPerfil = new ProfileModel({
       perfilInstagram,
       donaPerfil,
-      endereço,
+      endereco,
     });
     const savedPerfil = await newPerfil.save();
 
@@ -71,11 +71,11 @@ const updateProfile = async (req, res) => {
         return res.status(403).json("Não deu certo!");
       }
     });
-    const { perfilInstagram, donaPerfil, endereço } = req.body;
+    const { perfilInstagram, donaPerfil, endereco } = req.body;
     await ProfileModel.findByIdAndUpdate(req.params.id, {
       perfilInstagram,
       donaPerfil,
-      endereço,
+      endereco,
     });
 
     const profileUpdated = await ProfileModel.findById(req.params.id);
