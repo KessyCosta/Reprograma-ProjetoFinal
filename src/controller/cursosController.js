@@ -1,5 +1,6 @@
 const CursosModel = require('../model/cursosModel')
-
+const SECRET = process.env.SECRET
+const jwt = require('jsonwebtoken')
 
 //POST -> cadastra cursos de programação feito por mulheres
 const cadastraCurso = async (req, res) => {

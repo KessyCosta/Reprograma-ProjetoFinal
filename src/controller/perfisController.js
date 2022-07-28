@@ -1,5 +1,6 @@
 const ProfileModel = require('../model/perfisModel')
-
+const SECRET = process.env.SECRET
+const jwt = require('jsonwebtoken')
 
 //POST -> cadastra perfil de instagram de mulheres de incentivam outras mulheres
 const cadastraPerfil = async (req, res) => {
