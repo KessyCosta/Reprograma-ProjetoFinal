@@ -9,8 +9,9 @@
 Projeto de conclusão do bootcamp de desenvolvimento Back-end da [{reprograma}](https://reprograma.com.br/) 
 <p align="center">
 
-Aplicação disponível [aqui](https://www.canva.com/design/DAFHzTHYaNE/ocXnnyQjIjXfUOOaPNH0KA/view?utm_content=DAFHzTHYaNE&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent) 😊  
+Aplicação disponível [aqui](https://www.canva.com/design/DAFHzTHYaNE/ocXnnyQjIjXfUOOaPNH0KA/watch?utm_content=DAFHzTHYaNE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) 😊  
 <p>
+
 
 --------------
 
