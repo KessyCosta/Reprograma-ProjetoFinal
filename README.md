@@ -28,7 +28,7 @@ Para isso, foi construída uma *API* com banco de dados de canais de youtube sob
 -----------------
 ## 🔗 Link 
 
-- [Apresentação](colar lind do canva)
+- [Slide de Apresentação](https://www.canva.com/design/DAFHzTHYaNE/hFs7jfB2WsgDprlxEgHUlA/edit)
 
 <br>
 
